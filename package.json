@@ -1,6 +1,6 @@
 {
   "name": "@imprakhartripathi/reactron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to quickly create a custom structured React app with TypeScript & Vite",
   "main": "bin/cli.js",
   "bin": {

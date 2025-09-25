@@ -87,7 +87,7 @@ After initialization, you'll have these scripts in your `package.json`:
 Reactron creates a project with the following structure:
 
 ```
-my-react-app/
+my-reactron-app/
 ├── public/
 │   └── vite.svg
 ├── src/
@@ -113,7 +113,6 @@ my-react-app/
 │   ├── index.scss
 │   ├── main.tsx
 │   └── router.tsx
-├── .eslintrc.cjs
 ├── index.html
 ├── package.json
 ├── tsconfig.json
