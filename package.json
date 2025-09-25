@@ -1,0 +1,28 @@
+{
+  "name": "@imprakhartripathi/reactron",
+  "version": "1.0.0",
+  "description": "CLI tool to quickly create a custom structured React app with TypeScript & Vite",
+  "main": "bin/cli.js",
+  "bin": {
+    "scafollder": "./bin/cli.js"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "typescript",
+    "cli"
+  ],
+  "author": "Prakhar Tripathi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  }
+}
