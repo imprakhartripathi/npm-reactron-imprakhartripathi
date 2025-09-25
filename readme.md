@@ -1,106 +1,198 @@
-# @imprakhartripathi/scafollder
+# @imprakhartripathi/reactron
 
-🚀 A CLI tool to scaffold a **Node.js + Express + TypeScript + MongoDB backend** with my custom **Modified MVC structure**.
-No need to waste time setting up boilerplate – just scaffold and start coding.
+![Reactron](https://img.shields.io/npm/v/@imprakhartripathi/reactron?style=flat-square)
+![License](https://img.shields.io/npm/l/@imprakhartripathi/reactron?style=flat-square)
+![Downloads](https://img.shields.io/npm/dt/@imprakhartripathi/reactron?style=flat-square)
+
+🚀 A CLI tool to quickly create a custom structured React application with TypeScript and Vite, following a Custom Component-Page-Service architecture pattern.
 
 ---
 
 ## ✨ Features
 
-* Pre-configured **Express + MongoDB backend**
-* **TypeScript** support out of the box
-* Pre-wired **Nodemon + ts-node** for development
-* Ready-to-use **auth, environment configs, and structure**
-* Automatically merges **scripts** and **dependencies** into your project’s `package.json`
+* ⚡️ **Vite-powered** - Lightning fast development server and optimized builds
+* 🧩 **TypeScript** - Type safety and better developer experience
+* 📁 **Custom Structure** - Organized folder structure with components, pages, and services
+* 🎨 **SCSS Support** - Enhanced styling capabilities with Sass
+* 🌓 **Theme Switching** - Built-in light/dark mode with theme service
+* 🧭 **React Router** - Configured routing with strict mode and navigation
+* 🔧 **ESLint** - Code quality and consistency
+* 🔄 **Auto-merging** - Automatically merges scripts and dependencies into your project's `package.json`
 
 ---
 
 ## 📦 Installation
 
-You don’t need to install it globally — just use `npx`:
+You don't need to install it globally — just use `npx`:
 
 ```bash
-npx @imprakhartripathi/scafollder init
+npx @imprakhartripathi/reactron init
 ```
 
 Or install globally:
 
 ```bash
-npm install -g @imprakhartripathi/scafollder
-scafollder init
+npm install -g @imprakhartripathi/reactron
+reactron init
 ```
 
 ---
 
 ## ⚡ Usage
 
-Run inside an empty directory (or an existing Node.js project):
+Run inside an empty directory (or an existing React project):
 
 ```bash
-scafollder init
+# Create a new directory for your project
+mkdir my-react-app
+cd my-react-app
+
+# Initialize a new React app with Reactron
+npx @imprakhartripathi/reactron init
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
 This will:
 
-1. Copy the backend template into your current directory.
-2. Merge the template’s `scripts`, `dependencies`, and `devDependencies` into your project’s root `package.json`.
-3. Leave you ready to go with a working backend setup.
+1. Copy the React template into your current directory.
+2. Merge the template's `scripts`, `dependencies`, and `devDependencies` into your project's root `package.json`.
+3. Leave you ready to go with a working React setup.
 
 ---
 
-## 📜 Example Scripts
+## 📜 Available Scripts
 
-After initialization, you’ll have these scripts in your `package.json`:
+After initialization, you'll have these scripts in your `package.json`:
 
 ```json
 {
   "scripts": {
-    "start": "cd src && nodemon --exec ts-node server.ts",
-    "build": "tsc",
-    "fresh": "clear && npm start",
-    "setup": "npm i && npm fund && clear && npm start"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   }
 }
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 📁 Project Structure
 
-* Node.js
-* Express.js
-* TypeScript
-* MongoDB + Mongoose
-* JWT Auth
-* Nodemailer
-* Razorpay integration
+Reactron creates a project with the following structure:
+
+```
+my-react-app/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── homepage/
+│   │   │   │   ├── homepage.component.scss
+│   │   │   │   └── homepage.component.tsx
+│   │   │   └── navigation/
+│   │   │       ├── navigation.component.scss
+│   │   │       └── navigation.component.tsx
+│   │   ├── pages/
+│   │   │   └── welcome/
+│   │   │       ├── welcome.scss
+│   │   │       └── welcome.tsx
+│   │   └── services/
+│   │       └── theme/
+│   │           └── theme.service.tsx
+│   ├── assets/
+│   │   └── react.svg
+│   ├── App.scss
+│   ├── App.tsx
+│   ├── index.scss
+│   ├── main.tsx
+│   └── router.tsx
+├── .eslintrc.cjs
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Key Components
 
-1. Scaffold your backend:
+### Theme Service
 
-   ```bash
-   npx @imprakhartripathi/scafollder init
-   ```
-2. Install dependencies:
+The template includes a built-in theme service that provides light and dark mode functionality:
 
-   ```bash
-   npm install
-   ```
-3. Start the server:
+```tsx
+// Using the theme service
+import { useTheme } from './app/services/theme/theme.service';
 
-   ```bash
-   npm start
-   ```
+function MyComponent() {
+  const { theme, toggleTheme } = useTheme();
+  
+  return (
+    <div>
+      <p>Current theme: {theme}</p>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </div>
+  );
+}
+```
+
+### Routing
+
+The application comes with pre-configured React Router:
+
+```tsx
+// Adding a new route in router.tsx
+{
+  path: 'about',
+  element: <AboutPage />,
+}
+```
+
+---
+
+## 🎨 Customization
+
+### Styling
+
+The template uses SCSS for styling. Global styles are defined in `src/index.scss`, and component-specific styles are in their respective `.scss` files.
+
+### Adding New Components
+
+1. Create a new directory in `src/app/components/` or `src/app/pages/`
+2. Add your component files (e.g., `my-component.component.tsx` and `my-component.component.scss`)
+3. Import and use your component where needed
+
+### Adding New Services
+
+1. Create a new directory in `src/app/services/`
+2. Add your service file (e.g., `my-service.service.tsx`)
+3. Import and use your service where needed
+
+---
+
+## 🚀 Tech Stack
+
+* React 19
+* TypeScript
+* Vite 7
+* React Router 6
+* SCSS/Sass
+* ESLint 9
 
 ---
 
 ## 📌 Notes
 
-* If you previously used the unscoped package `scafollder`, migrate to `@imprakhartripathi/scafollder`.
-* Old package is deprecated and will no longer receive updates.
+* The template includes the latest React 19 and Vite 7
 
 ---
 
