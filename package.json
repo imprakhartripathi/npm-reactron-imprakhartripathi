@@ -4,7 +4,7 @@
   "description": "CLI tool to quickly create a custom structured React app with TypeScript & Vite",
   "main": "bin/cli.js",
   "bin": {
-    "scafollder": "./bin/cli.js"
+    "reactron": "./bin/cli.js"
   },
   "keywords": [
     "react",
